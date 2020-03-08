@@ -1,15 +1,17 @@
 #guessBox {
-    position: absolute;
     text-align: center;
-    margin-left: 42%;
-    margin-top: 25%;
-    width: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
-#guess {
-    margin-left: 575%;
-    height: 20px;
-    width: 50px
+
+#letters {
+
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
 }
 
 h1 {
@@ -28,8 +30,19 @@ p {
     text-align: center;
 }
 
-#scoring {
-    width: 200px;
-    border: black solid;
-    text-align: center;
+
+#leaderboardScore{
+float: right;
+text-align: center;
 }
+
+#leaderboardName{
+float: left;
+text-align: center;
+}
+
+.leaderboardTable{
+    width: 30%;
+}
+
+

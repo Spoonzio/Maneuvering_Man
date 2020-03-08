@@ -67,8 +67,6 @@ function censorWord(){
 //
 function userInput(button){
     letterGuessed = button["target"].textContent;
-    document.getElementById("button_" + letterGuessed).onclick = null;
-
     updateUserWord(letterGuessed);
 }
 
@@ -84,10 +82,14 @@ function updateUserWord(letter){
         if(letter.toLocaleLowerCase() == gameWord[l].toLocaleLowerCase()){
             userGuess[l] = letter;
             correct = true;
+            document.getElementById("button_" + letterGuessed).style.backgroundColor = "green"
+            document.getElementById("button_" + letterGuessed).disabled = true;
         }
     }
 
     if (correct == false){
+        document.getElementById("button_" + letterGuessed).style.backgroundColor = "red"
+        document.getElementById("button_" + letterGuessed).disabled = true;
         health--;
         console.log("health: " + health)
     }
@@ -99,6 +101,8 @@ function updateUserWord(letter){
       console.log("Score ++");
       score++;
       saveScore();
+      updateScoreDisplay();
+      
 
   }
 
@@ -106,11 +110,16 @@ function updateUserWord(letter){
     showWord()
 }
 
+function updateScoreDisplay(){
+    document.getElementById("score").innerHTML = "Score: " + score;
+
+}
+
 //
 // Present array as word
 //
 function showWord(){
-    console.log(userGuess.join(" "));
+    document.getElementById("guessBox").innerHTML = userGuess.join(" ");
    
 }
 
@@ -129,7 +138,7 @@ function createNButtons(num){
         button.onclick = userInput;
     
     
-        document.body.append(button);
+        document.getElementById("letters").append(button);
     }
     };
 
@@ -158,18 +167,26 @@ function saveScore(){
 }
 
 function getLeaderboard(){
-    let leaderboard =  document.getElementById("leaderboard");
+    let leaderboardName =  document.getElementById("leaderboardName");
+    let leaderboardScore =  document.getElementById("leaderboardScore");
 
     db.collection("scores").orderBy('score', 'desc').limit(3).get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             if (doc.exists) {
                 console.log("Document data:", doc.data());
-                let a = document.createElement("p");
-                
-                a.innerHTML = doc.data().name + "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + doc.data().score;
-                
-                leaderboard.append(a);
+                let a = document.createElement("div");
+                a.class = "table-cell"
+                a.innerHTML = doc.data().name;
+
+
+                let b = document.createElement("div");
+                b.class = "table-cell"
+                b.innerHTML = doc.data().score;
+
+                leaderboardName.append(a);
+                leaderboardScore.append(b);
+
 
                 
             } else {
