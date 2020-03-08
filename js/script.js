@@ -10,6 +10,8 @@ let userGuess = [];
 // Limbs
 let health = 6;
 
+const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
 // Score 
 
 let score = 0;
@@ -39,7 +41,9 @@ function initializeFirebase(){
 //
 function init(){
     initializeFirebase();
+    createNButtons(26);
     getLeaderboard();
+    
 
     let randIndex = parseInt(Math.random()*wordList.length);
     gameWord = wordList[randIndex].split("");
@@ -61,8 +65,10 @@ function censorWord(){
 //
 // Get input from user
 //
-function userInput(){
-    letterGuessed = document.getElementById("letterGuess").value;
+function userInput(button){
+    letterGuessed = button["target"].textContent;
+    document.getElementById("button_" + letterGuessed).onclick = null;
+
     updateUserWord(letterGuessed);
 }
 
@@ -74,12 +80,8 @@ function userInput(){
 function updateUserWord(letter){
     let correct = false
 
-    if(userGuess.includes(letter)){
-        console.log("Already guessed")
-    }
-
     for(let l = 0; l <gameWord.length; l++){
-        if(letter == gameWord[l]){
+        if(letter.toLocaleLowerCase() == gameWord[l].toLocaleLowerCase()){
             userGuess[l] = letter;
             correct = true;
         }
@@ -112,10 +114,34 @@ function showWord(){
    
 }
 
+
+function createNButtons(num){
+
+    for (let i = 0; i < num; i++){
+    
+        if (num <= 0 || num > 26){
+            showInvalidError();
+        }
+    
+        let button = document.createElement('button');
+        button.textContent = alphabet[i];
+        button.id = "button_" + alphabet[i];
+        button.onclick = userInput;
+    
+    
+        document.body.append(button);
+    }
+    };
+
+
 // ADD HIGHSCORE TO FIREBASE 
 function saveScore(){
     
  let nameTextField = document.getElementById("name");
+// ONLY UPDATE HIGH SCORE IF THERE IS A NAME
+
+ if (nameTextField.length > 0){
+
     // Add a new document with a generated id.
  db.collection("scores").add({
     name: nameTextField.value,
@@ -127,6 +153,7 @@ function saveScore(){
 .catch(function(error) {
     console.error("Error adding document: ", error);
 }); 
+ }
 
 }
 
