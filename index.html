@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Hanging dude</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-       <!-- FIRE BASE API STARTS-->
+    <!-- FIRE BASE API STARTS-->
 
-     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
-    
-  
-  <!-- FIRE BASE API ENDS-->
-  <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+
+
+    <!-- FIRE BASE API ENDS-->
+    <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
     <script defer src='js/script.js'></script>
+    <link href="styling.css" rel="stylesheet">
 </head>
+
 <body>
 
 
     <div>
-        <div id = "highscore"></div>
-       <span>Name: <input type="text" id = "name"></span><br>
-        <input type="text" id = "letterGuess">
-        <button id = "guess" style = "height: 20px; width: 50px" onclick="userInput()">Guess</button>
-       
-        <p>Leader board:</p>
-        <span><p>Name &nbsp; &nbsp; &nbsp;Score</p></span>
-        <div id="leaderboard"></div>
+        <div class="header">
+            <h1>Maneuver-Man!</h1>
+            <p>Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word to help him
+                maneuver!</p>
+        </div>
+        <div id="guessBox">
+            <p id="letters"></p>
+            <p id="score"></p>
+            <input type="text" id="letterGuess">
+            <button id="guess" onclick="userInput()">Guess</button>
+        </div>
+        <div id="scoring">
+            <div id="highscore"></div>
+            <span>Name: <input type="text" id="name"></span><br>
+            <p><u>Leaderboard</u></p>
+            <span>
+                <p>Name &nbsp; &nbsp; &nbsp;Score</p>
+            </span>
+            <div id="leaderboard"></div>
+        </div>
     </div>
+
 </body>
+
 </html>

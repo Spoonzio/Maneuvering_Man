@@ -1,0 +1,35 @@
+#guessBox {
+    position: absolute;
+    text-align: center;
+    margin-left: 42%;
+    margin-top: 25%;
+    width: 10px;
+}
+
+#guess {
+    margin-left: 575%;
+    height: 20px;
+    width: 50px
+}
+
+h1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 4.9em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 5px 0;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.header {
+    text-align: center;
+}
+
+#scoring {
+    width: 200px;
+    border: black solid;
+    text-align: center;
+}
