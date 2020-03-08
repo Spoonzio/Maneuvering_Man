@@ -12,8 +12,9 @@ let health = 6;
 
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-// Score 
+let buttonList = [];
 
+// Score 
 let score = 0;
 let db;
 
@@ -41,14 +42,11 @@ function initializeFirebase(){
 //
 function init(){
     initializeFirebase();
-    createNButtons(26);
+    createNButtons();
     getLeaderboard();
     
-
     let randIndex = parseInt(Math.random()*wordList.length);
-    gameWord = wordList[randIndex].split("");
-    
-    
+    gameWord = wordList[randIndex].split("");   
 }
 
 //
@@ -66,7 +64,7 @@ function censorWord(){
 // Get input from user
 //
 function userInput(button){
-    letterGuessed = button["target"].textContent;
+    let letterGuessed = button["target"].textContent;
     updateUserWord(letterGuessed);
 }
 
@@ -82,16 +80,14 @@ function updateUserWord(letter){
         if(letter.toLocaleLowerCase() == gameWord[l].toLocaleLowerCase()){
             userGuess[l] = letter;
             correct = true;
-            document.getElementById("button_" + letterGuessed).style.backgroundColor = "green"
-            document.getElementById("button_" + letterGuessed).disabled = true;
+            buttonList[alphabet.indexOf(letter)].correct(letter);
         }
     }
 
     if (correct == false){
-        document.getElementById("button_" + letterGuessed).style.backgroundColor = "red"
-        document.getElementById("button_" + letterGuessed).disabled = true;
+        buttonList[alphabet.indexOf(letter)].wrong(letter);
         health--;
-        console.log("health: " + health)
+        console.log("health: " + health);
     }
 
 // COMPARE BOTH ARRAYS TO SEE IF USER GUESS THE WORD CORRECTLY
@@ -123,24 +119,40 @@ function showWord(){
    
 }
 
-
-function createNButtons(num){
-
-    for (let i = 0; i < num; i++){
+function Button(i){
     
-        if (num <= 0 || num > 26){
-            showInvalidError();
-        }
+    this.btn = document.createElement('button');
+    this.btn.textContent = alphabet[i];
+    this.btn.id = "button_" + alphabet[i];
+    this.btn.onclick = userInput;
     
-        let button = document.createElement('button');
-        button.textContent = alphabet[i];
-        button.id = "button_" + alphabet[i];
-        button.onclick = userInput;
-    
-    
-        document.getElementById("letters").append(button);
+    this.display = function (){
+        document.getElementById("letters").appendChild(this.btn);
     }
-    };
+
+    this.wrong = function(letterGuessed){
+        let butt = buttonList[alphabet.indexOf(letterGuessed)];
+        console.log(butt);
+        butt.btn.disabled = true;
+        butt.btn.style.backgroundColor = "red";
+    }
+
+    this.correct = function(letterGuessed){
+        let butt = buttonList[alphabet.indexOf(letterGuessed)];
+        console.log(butt);
+        butt.btn.disabled = true;
+        butt.btn.style.backgroundColor = "green";
+    }
+
+}
+
+function createNButtons(){
+
+    for (let i = 0; i < 26; i++){
+        buttonList.push(new Button(i));
+        buttonList[i].display();
+    }
+};
 
 
 // ADD HIGHSCORE TO FIREBASE 
