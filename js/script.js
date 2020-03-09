@@ -51,10 +51,10 @@ function init() {
     userGuess = [];
     gameWord = [];
     wordDef = "";
+    getRandomWord()
     createNButtons();
     getLeaderboard();
     updateHealth();
-    getRandomWord()
     censorWord();
     showDef();
 }
@@ -62,13 +62,12 @@ function init() {
 function getRandomWord() { 
 
     if(Object.keys(wordDict).length > 0){
+        
         let randIndex = parseInt(Math.random() * Object.keys(wordDict).length);
         gameWord = Object.keys(wordDict)[randIndex].split("");
         wordDef = wordDict[gameWord.join("")];
         delete wordDict[gameWord.join("")];
-    }else{
-        //get
-        console.log(wordDict)
+
     }
 }
 
@@ -141,7 +140,12 @@ function updateScoreDisplay() {
 // Present array as word
 //
 function showWord() {
-    document.getElementById("guessBox").innerHTML = "<p class = 'guessWord'>" +userGuess.join(" ") + "</p>";
+    if(gameWord.length > 0){
+        document.getElementById("guessBox").innerHTML = "<p id = 'guessWord'>" +userGuess.join(" ") + "</p>";
+    }else{
+        document.getElementById("guessBox").innerHTML = "<p id = 'guessWord'>SOOOOWWYYYYY NO MORE WORDS!</p>";
+
+    }
 }
 
 function showDef(){
