@@ -53,10 +53,10 @@ function init() {
     userGuess = [];
     gameWord = [];
     wordDef = "";
+    getRandomWord()
     createNButtons();
     getLeaderboard();
     updateHealth();
-    getRandomWord()
     censorWord();
     showDef();
 }
@@ -151,7 +151,12 @@ function updateScoreDisplay() {
 // Present array as word
 //
 function showWord() {
-    document.getElementById("guessBox").innerHTML = "<p class = 'guessWord'>" + userGuess.join(" ") + "</p>";
+    if(gameWord.length > 0){
+        document.getElementById("guessBox").innerHTML = "<p id = 'guessWord'>" +userGuess.join(" ") + "</p>";
+    }else{
+        document.getElementById("guessBox").innerHTML = "<p id = 'guessWord'>SOOOOWWYYYYY NO MORE WORDS!</p>";
+
+    }
 }
 
 //
