@@ -20,43 +20,71 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
 
+    <!--BOOTSTRAP BIG XD-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- FIRE BASE API ENDS-->
     <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
     <script defer src='js/script.js'></script>
     <link href="styling.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="header">
+    <!--<div class="header">
         <h1>Maneuver-Man!</h1>
         <p>Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word to help him
             maneuver!</p>
-    </div>
-    <div id="guessBox">
-    </div>
+    </div>-->
+    <nav class="navbar" id="topBarManeuver">
+        <a class="navbar-brand" href="#!">
+            <h1>Maneuver-Man!</h1>
+        </a>
+    </nav>
+    <nav class="navbar" id="bottomBarManeuver">
+        <a class="navbar-brand" href="#!">
+            <p id="description">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
+                to help him
+                maneuver!</p>
+        </a>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Stats</h4>
+            <div id="definition">
+            </div>
 
-    <div id = "definition">
-    </div>
-
-    <div id = "health">
-    </div>
-
-    <div id="letters"></div>
-
-    <div id="highscore"></div>
-    <div id="nameinput">Name: <input type="text" id="name"></div>
-
-    <div class="leaderboardTable" id = "leaderboard">
-        <div id="leaderboardName">
-            <div class="table-header">Name</div>
+            <div id="health">
+            </div>
         </div>
-        <div id="leaderboardScore">
-            <div class="table-header">Score</div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Guess Here!</h4>
+            <div id="guessBox">
+            </div>
+        
+            <div id="letters"></div>
         </div>
     </div>
 
-
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Leaderboard</h4>
+            <div id="highscore"></div>
+            <div id="nameinput">Name: &nbsp;<input type="text" id="name"></div>
+            <div class="leaderboardTable" id="leaderboard">
+                <div id="leaderboardName">
+                    <div class="table-header">Name</div>
+                </div>
+                <div id="leaderboardScore">
+                    <div class="table-header">Score</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
 </body>

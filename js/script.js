@@ -106,7 +106,7 @@ function updateUserWord(letter) {
     if (correct == false) {
         buttonList[alphabet.indexOf(letter)].wrong(letter);
         health--;
-        console.log("health: " + health);
+        console.log("Health: " + health);
 
         if (health == 0) {
             alert("You lose")
@@ -163,14 +163,14 @@ function showWord() {
 // Show the game word's definition
 //
 function showDef() {
-    document.getElementById("definition").innerHTML = "<p class = 'guessDefinition'>" + wordDef + "</p>";
+    document.getElementById("definition").innerHTML = "<p class = 'guessDefinition'>" + "Definition: " + wordDef + "</p>";
 }
 
 //
 // Update user's health
 //
 function updateHealth() {
-    document.getElementById("health").innerHTML = "<p class = 'healthLevel'> health:" + health + "</p>";
+    document.getElementById("health").innerHTML = "<p class = 'healthLevel'> Health: " + health + "</p>";
 
 }
 

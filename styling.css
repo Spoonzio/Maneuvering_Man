@@ -14,16 +14,41 @@
 
 }
 
+#topBarManeuver {
+    background-color: crimson;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+
+#bottomBarManeuver {
+    background-color: rgb(228, 47, 83);
+    text-align: center;
+}
+
 h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 4.9em;
+    font-size: 3.9em;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin: 5px 0;
+    color: white;
+}
+
+#description {
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+}
+
+.navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 p {
     font-size: 1.5em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .header {
@@ -31,22 +56,41 @@ p {
 }
 
 
-#leaderboardScore{
-float: right;
-text-align: center;
+#leaderboardScore {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-#leaderboardName{
-float: left;
-text-align: center;
+#leaderboardName {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-.leaderboardTable{
+.leaderboardTable {
     width: 30%;
     display: none;
 }
 
-#noMoreWords{
-    display: none;
+.card {
+    width: fit-content;
+    border-color: grey;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 50px;
 }
 
+.card-title {
+    text-align: center;
+}
+
+#noMoreWords {
+    display: none;
+}
