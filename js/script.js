@@ -161,7 +161,7 @@ function reset(){
 // Update user's score
 //
 function updateScoreDisplay() {
-    document.getElementById("score").innerHTML = "Score: " + score;
+    document.getElementById("score").innerHTML = "<p = class='scoreLevel'> Score: " + score + "</p>";
 }
 
 //
@@ -279,7 +279,7 @@ function saveScore() {
 
 function getLeaderboard() {
 
-    document.getElementById("userScoreLeaderboard").innerText = "Your score is: " + score;
+    document.getElementById("userScoreLeaderboard").innerText = "<p class = 'scoreLevel'> Health: " + score + "</p>";
 
     let leaderboardTBody = document.getElementById("leaderboardBody");
     leaderboardTBody.innerHTML = "";

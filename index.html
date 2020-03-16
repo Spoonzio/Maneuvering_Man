@@ -35,8 +35,8 @@
 
   <div class="d-flex vh-100" id="nicknameInputDiv">
     <div class="d-flex w-100 justify-content-center align-self-center">
-      <div class="card text-center">
-        <div class="card-header">
+      <div class="card text-center" id="outlineCard">
+        <div class="card-header" id="headerGradient">
           Welcome
         </div>
         <div class="card-body">
@@ -48,7 +48,7 @@
             <label for="nicknameInput">Let's start with your nickname!</label>
             <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
           </div>
-          <button type="button" class="btn btn-primary" onclick="saveNickName()">Start!</button>
+          <button type="button" class="btn btn-primary" onclick="saveNickName()" id="buttonGradient">Start!</button>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
   <div class="d-none" id="mainDiv">
 
     <nav class="navbar" id="topBarManeuver">
-      <a class="navbar-brand" href="#!">
+      <a class="navbar-brand">
         <h1>Maneuver-Man!<br></h1>
         <p id="description">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
           to help him
@@ -70,7 +70,7 @@
         <div id="health">
         </div>
       </a>
-      <a class="flex-sm-fill text-sm-center nav-link active" id="stickyStats">Stats!</a>
+      <a class="flex-sm-fill text-sm-center nav-link active" id="stickyStats"><p>Stats!</p></a>
       <a class="flex-sm-fill text-sm-center nav-link">
         <div id="score">
         </div>
@@ -97,8 +97,8 @@
 
   <div class="d-flex vh-100" id="leaderboard">
     <div class="d-flex w-100 justify-content-center align-self-center">
-      <div class="card text-center">
-        <div class="card-header">
+      <div class="card text-center" id="outlineCard">
+        <div class="card-header" id="headerGradient">
           Leaderboard
         </div>
         <div class="card-body">
@@ -113,7 +113,7 @@
             <tbody id="leaderboardBody">
             </tbody>
           </table>
-          <button type="button" class="btn btn-primary" onclick="reset()">Play Again</button>
+          <button type="button" class="btn btn-primary" id="buttonGradient" onclick="reset()">Play Again</button>
         </div>
         <div class="card-footer text-muted" id="userScoreLeaderboard">
           Your Score:

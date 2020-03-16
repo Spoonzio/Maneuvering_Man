@@ -18,7 +18,7 @@
     background: rgb(136, 22, 72);
     background: linear-gradient(0deg, rgba(136, 22, 72, 1) 0%, rgba(253, 45, 70, 1) 100%);
     text-align: center;
-    border-bottom: 10px solid rgb(54, 53, 53);
+    border-bottom: 2.5px solid rgb(54, 53, 53);
 }
 
 h1 {
@@ -45,6 +45,7 @@ h1 {
 p {
     font-size: 1.5em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
 }
 
 .header {
@@ -85,11 +86,9 @@ p {
 }
 
 #stickyStats {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    text-align: center;
-    font-size: x-large;
+    background: rgb(253, 45, 70);
+    background: linear-gradient(0deg, rgba(253, 45, 70, 1) 0%, rgba(136, 22, 72, 1) 100%);
+
 }
 
 .card-title {
@@ -100,11 +99,26 @@ p {
     display: none;
 }
 
-#health {
-    font-size: unset;
-    text-emphasis: none;
+#healthLevel {
+    font-size: 1.5em;
 }
 
-#score {
+#scoreLevel {
     font-size: 1.5em;
+}
+
+#headerGradient {
+    background: rgb(136, 22, 72);
+    background: linear-gradient(0deg, rgba(136, 22, 72, 1) 0%, rgba(253, 45, 70, 1) 100%);
+    border-bottom: 2.5px solid rgb(54, 53, 53);
+    color: white;
+}
+
+#buttonGradient {
+    background: rgb(253, 45, 70);
+    background: linear-gradient(0deg, rgba(253, 45, 70, 1) 0%, rgba(136, 22, 72, 1) 100%);
+}
+
+#outlineCard {
+    border: 1.5px solid rgb(54, 53, 53);
 }
