@@ -2,122 +2,121 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Hanging dude</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- FIRE BASE API STARTS-->
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Hanging dude</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <!-- FIRE BASE API STARTS-->
 
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
 
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
 
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
 
-    <!--BOOTSTRAP BIG XD-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  <!--BOOTSTRAP BIG XD-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!-- FIRE BASE API ENDS-->
-    <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
-    <script defer src='js/script.js'></script>
-    <link href="styling.css" rel="stylesheet">
+  <!-- FIRE BASE API ENDS-->
+  <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
+  <script defer src='js/script.js'></script>
+  <link href="styling.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <div class="d-flex vh-100" id="nicknameInputDiv">
-        <div class="d-flex w-100 justify-content-center align-self-center">
-            <div class="card text-center">
-                <div class="card-header">
-                  Welcome
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Maneuver-Man!</h5>
-                  <p class="card-text">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
-                    to help him
-                    maneuver!</p>
-                    <div class="form-group">
-                        <label for="nicknameInput">Let's start with your nickname!</label>
-                        <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
-                      </div>
-                  <button type="button" class="btn btn-primary" onclick="saveNickName()">Start!</button>
-                </div>
-              </div>
+  <div class="d-flex vh-100" id="nicknameInputDiv">
+    <div class="d-flex w-100 justify-content-center align-self-center">
+      <div class="card text-center">
+        <div class="card-header">
+          Welcome
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Maneuver-Man!</h5>
+          <p class="card-text">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
+            to help him
+            maneuver!</p>
+          <div class="form-group">
+            <label for="nicknameInput">Let's start with your nickname!</label>
+            <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
+          </div>
+          <button type="button" class="btn btn-primary" onclick="saveNickName()">Start!</button>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="d-none" id="mainDiv">
+  <div class="d-none" id="mainDiv">
 
     <nav class="navbar" id="topBarManeuver">
-        <a class="navbar-brand" href="#!">
-            <h1>Maneuver-Man!</h1>
-        </a>
+      <a class="navbar-brand" href="#!">
+        <h1>Maneuver-Man!<br></h1>
+        <p id="description">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
+          to help him
+          maneuver!</p>
+      </a>
     </nav>
-    <nav class="navbar" id="bottomBarManeuver">
-        <a class="navbar-brand" href="#!">
-            <p id="description">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
-                to help him
-                maneuver!</p>
-        </a>
+    <nav class="nav nav-pills flex-column flex-sm-row sticky-top" id="stickyStats">
+      <a class="flex-sm-fill text-sm-center nav-link" href="#!" id="stickyStats">
+        <div id="health">
+        </div>
+      </a>
+      <a class="flex-sm-fill text-sm-center nav-link active" href="#!" id="stickyStats" id="activeStats">Stats!</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="#!" id="stickyStats">Link</a>
     </nav>
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Stats</h4>
-            <div id="definition">
-            </div>
 
-            <div id="health">
-            </div>
+    <div class="card" id="playingCards">
+      <div class="card-body">
+        <h4 class="card-title">
+          <div id="guessBox">
+          </div>
+        </h4>
+        <div id="definition">
         </div>
-    </div>
-
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Guess Here!</h4>
-            <div id="guessBox">
-            </div>
-        
-            <div id="letters"></div>
+        <div id="guessBox">
         </div>
-    </div>
 
-    </div>
-
-
-    <div class="d-flex vh-100" id="leaderboard">
-        <div class="d-flex w-100 justify-content-center align-self-center">
-            <div class="card text-center">
-                <div class="card-header">
-                  Leaderboard
-                </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Rank #</th>
-                            <th scope="col">Nickname</th>
-                            <th scope="col">Score</th>
-                          </tr>
-                        </thead>
-                        <tbody id="leaderboardBody">
-                        </tbody>
-                      </table>
-                      <button type="button" class="btn btn-primary" onclick= "reset()">Play Again</button>
-                </div>
-                <div class="card-footer text-muted" id="userScoreLeaderboard">
-                    Your Score:
-                  </div>
-              </div>
+        <div id="letters"></div>
       </div>
     </div>
+
+  </div>
+
+
+  <div class="d-flex vh-100" id="leaderboard">
+    <div class="d-flex w-100 justify-content-center align-self-center">
+      <div class="card text-center">
+        <div class="card-header">
+          Leaderboard
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Rank #</th>
+                <th scope="col">Nickname</th>
+                <th scope="col">Score</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+            </tbody>
+          </table>
+          <button type="button" class="btn btn-primary" onclick="reset()">Play Again</button>
+        </div>
+        <div class="card-footer text-muted" id="userScoreLeaderboard">
+          Your Score:
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </body>

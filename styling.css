@@ -15,14 +15,10 @@
 }
 
 #topBarManeuver {
-    background-color: crimson;
+    background: rgb(136, 22, 72);
+    background: linear-gradient(0deg, rgba(136, 22, 72, 1) 0%, rgba(253, 45, 70, 1) 100%);
     text-align: center;
-    border-bottom: 2px solid black;
-}
-
-#bottomBarManeuver {
-    background-color: rgb(228, 47, 83);
-    text-align: center;
+    border-bottom: 10px solid rgb(54, 53, 53);
 }
 
 h1 {
@@ -75,7 +71,7 @@ p {
     display: none;
 }
 
-.card {
+#playingCards {
     width: fit-content;
     border-color: grey;
     margin-left: auto;
@@ -85,6 +81,11 @@ p {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 50px;
+    text-align: center;
+}
+
+#stickyStats {
+    position: sticky;
 }
 
 .card-title {
