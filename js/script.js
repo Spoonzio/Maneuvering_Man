@@ -60,6 +60,8 @@ function init() {
     createNButtons();
     getLeaderboard();
     updateHealth();
+    updateScoreDisplay();
+    
     censorWord();
     showDef();
 }
@@ -127,6 +129,8 @@ function updateUserWord(letter) {
     }
     showWord();
     updateHealth();
+    updateScoreDisplay();
+
 }
 
 //
@@ -183,9 +187,10 @@ function showDef() {
 // Update user's health
 //
 function updateHealth() {
-    document.getElementById("health").innerHTML = "<p class = 'healthLevel'> Health: " + health + "</p> <br> <p class = 'healthLevel'> Score: " + score + "</p>";
+    document.getElementById("health").innerHTML = "<p class = 'healthLevel'> Health: " + health + "</p>";
 
 }
+
 
 //
 // Button's constructor
