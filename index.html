@@ -21,8 +21,8 @@
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
 
     <!--BOOTSTRAP BIG XD-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- FIRE BASE API ENDS-->
     <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
@@ -32,11 +32,30 @@
 </head>
 
 <body>
-    <!--<div class="header">
-        <h1>Maneuver-Man!</h1>
-        <p>Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word to help him
-            maneuver!</p>
-    </div>-->
+
+    <div class="d-flex vh-100" id="nicknameInputDiv">
+        <div class="d-flex w-100 justify-content-center align-self-center">
+            <div class="card text-center">
+                <div class="card-header">
+                  Welcome
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Maneuver-Man!</h5>
+                  <p class="card-text">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
+                    to help him
+                    maneuver!</p>
+                    <div class="form-group">
+                        <label for="nicknameInput">Let's start with your nickname!</label>
+                        <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
+                      </div>
+                  <button type="button" class="btn btn-primary" onclick="saveNickName()">Start!</button>
+                </div>
+              </div>
+      </div>
+    </div>
+
+    <div class="d-none" id="mainDiv">
+
     <nav class="navbar" id="topBarManeuver">
         <a class="navbar-brand" href="#!">
             <h1>Maneuver-Man!</h1>
@@ -70,23 +89,37 @@
         </div>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Leaderboard</h4>
-            <div id="highscore"></div>
-            <div id="nameinput">Name: &nbsp;<input type="text" id="name"></div>
-            <div class="leaderboardTable" id="leaderboard">
-                <div id="leaderboardName">
-                    <div class="table-header">Name</div>
-                </div>
-                <div id="leaderboardScore">
-                    <div class="table-header">Score</div>
-                </div>
-            </div>
-        </div>
     </div>
 
+
+    <div class="d-flex vh-100" id="leaderboard">
+        <div class="d-flex w-100 justify-content-center align-self-center">
+            <div class="card text-center">
+                <div class="card-header">
+                  Leaderboard
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Rank #</th>
+                            <th scope="col">Nickname</th>
+                            <th scope="col">Score</th>
+                          </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                        </tbody>
+                      </table>
+                      <button type="button" class="btn btn-primary" onclick= "reset()">Play Again</button>
+                </div>
+                <div class="card-footer text-muted" id="userScoreLeaderboard">
+                    Your Score:
+                  </div>
+              </div>
+      </div>
     </div>
+
+
 </body>
 
 </html>

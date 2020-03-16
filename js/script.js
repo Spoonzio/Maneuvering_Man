@@ -21,6 +21,7 @@ let buttonList = [];
 // Score 
 let score = 0;
 let db;
+let nickname;
 
 //
 // API for firebase
@@ -49,10 +50,12 @@ initializeFirebase();
 //
 // Initiator: Populate game word as array with random word
 //
+
 function init() {
     userGuess = [];
     gameWord = [];
     wordDef = "";
+
     getRandomWord()
     createNButtons();
     getLeaderboard();
@@ -96,6 +99,7 @@ function updateUserWord(letter) {
 
     for (let l = 0; l < gameWord.length; l++) {
         if (letter.toLocaleLowerCase() == gameWord[l].toLocaleLowerCase()) {
+            score++;
             userGuess[l] = letter;
             correct = true;
             buttonList[alphabet.indexOf(letter)].correct(letter);
@@ -106,6 +110,7 @@ function updateUserWord(letter) {
     if (correct == false) {
         buttonList[alphabet.indexOf(letter)].wrong(letter);
         health--;
+        score--;
         console.log("Health: " + health);
 
         if (health == 0) {
@@ -117,7 +122,6 @@ function updateUserWord(letter) {
     // COMPARE BOTH ARRAYS TO SEE IF USER GUESS THE WORD CORRECTLY
     // IF TRUE, POST SCORE TO SCOREBOARD ON FIREBASE
     if (gameWord.toString() == userGuess.toString()) {
-        score++;
         init();
         //updateScoreDisplay();
     }
@@ -132,13 +136,22 @@ function endGame() {
 
     //Remove buttons when game is over (hide?)
     removeButtons();
-
     //save score
     saveScore();
+    hideMainDiv();
 
+    showLeaderBoard();
     // display leaderboard and ending message
-    document.getElementById("leaderboard").style.display = "block";
+
 }
+
+
+function reset(){
+
+    window.location.replace("index.html");
+
+}
+
 
 //
 // Update user's score
@@ -170,7 +183,7 @@ function showDef() {
 // Update user's health
 //
 function updateHealth() {
-    document.getElementById("health").innerHTML = "<p class = 'healthLevel'> Health: " + health + "</p>";
+    document.getElementById("health").innerHTML = "<p class = 'healthLevel'> Health: " + health + "</p> <br> <p class = 'healthLevel'> Score: " + score + "</p>";
 
 }
 
@@ -241,14 +254,12 @@ function removeButtons() {
 // ADD HIGHSCORE TO FIREBASE 
 function saveScore() {
 
-    let nameTextField = document.getElementById("name");
-    console.log(nameTextField);
     // ONLY UPDATE HIGH SCORE IF THERE IS A NAME
-    if (nameTextField.value.length > 0) {
+    if (nickname.length > 0) {
 
         // Add a new document with a generated id.
         db.collection("scores").add({
-                name: nameTextField.value,
+                name: nickname,
                 score: score
             })
             .then(function (docRef) {
@@ -262,25 +273,36 @@ function saveScore() {
 }
 
 function getLeaderboard() {
-    let leaderboardName = document.getElementById("leaderboardName");
-    let leaderboardScore = document.getElementById("leaderboardScore");
+
+    document.getElementById("userScoreLeaderboard").innerText = "Your score is: " + score;
+
+    let leaderboardTBody = document.getElementById("leaderboardBody");
+    leaderboardTBody.innerHTML = "";
+
+    let i = 1;
 
     db.collection("scores").orderBy('score', 'desc').limit(3).get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             // doc.data() is never undefined for query doc snapshots
             if (doc.exists) {
                 console.log("Document data:", doc.data());
-                let a = document.createElement("div");
-                a.class = "table-cell"
-                a.innerHTML = doc.data().name;
+                let row = document.createElement("tr");
 
+                let head = document.createElement("th");
+                head.scope = "row";
+                head.innerText = i;
+                i++;
 
-                let b = document.createElement("div");
-                b.class = "table-cell"
-                b.innerHTML = doc.data().score;
+                let nameData = document.createElement("td");
+                nameData.innerHTML = doc.data().name;
 
-                leaderboardName.append(a);
-                leaderboardScore.append(b);
+                let scoreData = document.createElement("td");
+                scoreData.innerHTML = doc.data().score;
+
+                leaderboardTBody.append(row);
+                leaderboardTBody.append(head);
+                leaderboardTBody.append(nameData);
+                leaderboardTBody.append(scoreData);
 
 
 
@@ -292,4 +314,55 @@ function getLeaderboard() {
     });
 }
 
+
+function saveNickName(){
+
+  nickname = document.getElementById("nicknameInput").value;
+  console.log("Nickname is " + nickname);
+  showMainDiv();
+  
+
+}
+
+
+function hideNickNameInput(){
+
+    document.getElementById("nicknameInputDiv").classList.replace("d-flex", "d-none");
+
+}
+
+function showNickNameInput(){
+    
+    document.getElementById("nicknameInputDiv").classList.replace("d-none", "d-flex");
+
+}
+
+
+function showMainDiv(){
+
+    document.getElementById("mainDiv").classList.replace("d-none", "d-block");
+    hideNickNameInput();
+    hideLeaderBoard();
+
+}
+
+function hideMainDiv(){
+
+    document.getElementById("mainDiv").classList.replace("d-block", "d-none");
+
+}
+
+
+function hideLeaderBoard(){
+
+    document.getElementById("leaderboard").classList.replace("d-flex", "d-none");
+
+}
+
+function showLeaderBoard(){
+
+    document.getElementById("leaderboard").classList.replace("d-none", "d-flex");
+
+    
+}
 init()
