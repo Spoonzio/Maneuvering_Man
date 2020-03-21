@@ -279,7 +279,7 @@ function saveScore() {
 
 function getLeaderboard() {
 
-    document.getElementById("userScoreLeaderboard").innerText = "<p class = 'scoreLevel'> Health: " + score + "</p>";
+    document.getElementById("userScoreLeaderboard").innerHTML = "<p class = 'scoreLevel'> Health: " + score + "</p>";
 
     let leaderboardTBody = document.getElementById("leaderboardBody");
     leaderboardTBody.innerHTML = "";
