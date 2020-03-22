@@ -1,6 +1,6 @@
 // Masterlist fo words
 let wordDict = {
-    "jason": "boomer",
+    "jason": "This is a really long test that shows how much of text this box can hold. We need to be on the safe side.",
     "hello": "greeting"
 }
 
@@ -161,7 +161,8 @@ function reset(){
 // Update user's score
 //
 function updateScoreDisplay() {
-    document.getElementById("score").innerHTML = "<p = class='scoreLevel'> Score: " + score + "</p>";
+    document.getElementById("nav_score").innerText = "Score: " + score;
+    
 }
 
 //
@@ -180,14 +181,14 @@ function showWord() {
 // Show the game word's definition
 //
 function showDef() {
-    document.getElementById("definition").innerHTML = "<p class = 'guessDefinition'>" + "Definition: " + wordDef + "</p>";
+    document.getElementById("definition").innerHTML = "<p id = 'guessDefinition'>" + "Definition: " + wordDef + "</p>";
 }
 
 //
 // Update user's health
 //
 function updateHealth() {
-    document.getElementById("health").innerHTML = "<p class = 'healthLevel'> Health: " + health + "</p>";
+    document.getElementById("nav_health").innerText = "Health: " + health;
 
 }
 
@@ -200,6 +201,8 @@ function Button(i) {
     // Button's attributes
     this.btn = document.createElement('button');
     this.btn.textContent = alphabet[i];
+    this.btn.classList.add("guessButtonNormal");
+    
     this.btn.id = "button_" + alphabet[i];
     this.btn.onclick = function () {
         updateUserWord(alphabet[i]);
@@ -215,7 +218,7 @@ function Button(i) {
         let butt = buttonList[alphabet.indexOf(letterGuessed)];
         console.log(butt);
         butt.btn.disabled = true;
-        butt.btn.style.backgroundColor = "red";
+        butt.btn.classList.replace("guessButtonNormal","guessButtonWrong");
     }
 
     // Show button is correct
@@ -223,7 +226,7 @@ function Button(i) {
         let butt = buttonList[alphabet.indexOf(letterGuessed)];
         console.log(butt);
         butt.btn.disabled = true;
-        butt.btn.style.backgroundColor = "green";
+        butt.btn.classList.replace("guessButtonNormal","guessButtonRight");
     }
 }
 
@@ -279,7 +282,7 @@ function saveScore() {
 
 function getLeaderboard() {
 
-    document.getElementById("userScoreLeaderboard").innerText = "<p class = 'scoreLevel'> Health: " + score + "</p>";
+    document.getElementById("userScoreLeaderboard").innerHTML = "Health: " + score;
 
     let leaderboardTBody = document.getElementById("leaderboardBody");
     leaderboardTBody.innerHTML = "";

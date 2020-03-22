@@ -29,77 +29,84 @@
   <script defer src='js/script.js'></script>
   <link href="styling.css" rel="stylesheet">
 
+      <!-- FONT FOR TITLE -->
+      <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
   <div class="d-flex vh-100" id="nicknameInputDiv">
-    <div class="d-flex w-100 justify-content-center align-self-center">
-      <div class="card text-center" id="outlineCard">
-        <div class="card-header" id="headerGradient">
-          Welcome
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Maneuver-Man!</h5>
-          <p class="card-text">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
-            to help him
-            maneuver!</p>
-          <div class="form-group">
-            <label for="nicknameInput">Let's start with your nickname!</label>
-            <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
-          </div>
-          <button type="button" class="btn btn-primary" onclick="saveNickName()" id="buttonGradient">Start!</button>
+
+ 
+    <div class="container-fluid">
+      <div class="text-center">
+        <div class="container-fluid mt-5">
+          <p id="title">Maneuvering Man</p>
+          <p class="" id="titleDescription">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word to help him maneuver!</p>
         </div>
       </div>
-    </div>
-  </div>
+      
+      <div class="text-center mt-5" id="titlePageImage">
+        <img src="src/images/titlePageHangMan.svg" class="img-fluid" style="width: 200px;" alt="Hangman Title Page Image">
+      </div>
+      
+      
+      <div class="form-group text-center">
+        <div class="container mt-5" style="width: 350px;">
+        <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
+        </div>
+      <button class="mt-5" type="button" onclick="saveNickName()" id="startButton">Start!</button>
+      </div>
+      </div>
+      </div>
+
+      </div>
 
   <div class="d-none" id="mainDiv">
 
-    <nav class="navbar" id="topBarManeuver">
-      <a class="navbar-brand">
-        <h1>Maneuver-Man!<br></h1>
-        <p id="description">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word
-          to help him
-          maneuver!</p>
-      </a>
-    </nav>
-
-    <nav class="nav nav-pills flex-column flex-sm-row sticky-top">
-      <a class="flex-sm-fill text-sm-center nav-link">
-        <div id="health">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="container text-center mt-4">
+            <p id="nav_health">HEALTH: </h1>
         </div>
-      </a>
-      <a class="flex-sm-fill text-sm-center nav-link active" id="stickyStats"><p>Stats!</p></a>
-      <a class="flex-sm-fill text-sm-center nav-link">
-        <div id="score">
+                </div>
+        <div class="col">
+          <div class="container text-center mt-4">
+            <p id="nav_title">Maneuver-Man!</h1>
         </div>
-      </a>
-    </nav>
+              </div>
+        <div class="col">
+          <div class="container text-center mt-4">
+            <p id="nav_score">SCORE: </h1>
+        </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="card" id="playingCards">
-      <div class="card-body">
-        <h4 class="card-title">
+
+    <div class="container-fluid img-fluid" id="stickManView">
+      <img src="src/images/hangEmpty.svg" style="width: 20%;" class="img-fluid" alt="Responsive image">
+    </div>
+
+    <div class="container-fluid" id="playingCards">
           <div id="guessBox">
           </div>
-        </h4>
         <div id="definition">
         </div>
         <div id="guessBox">
         </div>
-
         <div id="letters"></div>
-      </div>
     </div>
-
   </div>
 
 
-  <div class="d-flex vh-100" id="leaderboard">
+  <div class="d-none vh-100" id="leaderboard">
     <div class="d-flex w-100 justify-content-center align-self-center">
       <div class="card text-center" id="outlineCard">
         <div class="card-header" id="headerGradient">
-          Leaderboard
+          <p id="leaderboardTitle">Leaderboard</p>
         </div>
         <div class="card-body">
           <table class="table">
@@ -113,10 +120,10 @@
             <tbody id="leaderboardBody">
             </tbody>
           </table>
-          <button type="button" class="btn btn-primary" id="buttonGradient" onclick="reset()">Play Again</button>
+          <button type="button" class="btn btn-dark" id="buttonGradient" onclick="reset()">Play Again</button>
         </div>
-        <div class="card-footer text-muted" id="userScoreLeaderboard">
-          Your Score:
+        <div class="card-footer text-muted">
+         <p  id="userScoreLeaderboard">Your Score:</p>
         </div>
       </div>
     </div>
