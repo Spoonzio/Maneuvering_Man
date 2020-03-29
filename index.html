@@ -2,132 +2,131 @@
 <html>
 
 <head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <title>Hanging dude</title>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <!-- FIRE BASE API STARTS-->
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Hanging dude</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!-- FIRE BASE API STARTS-->
 
-  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
 
-  <!--BOOTSTRAP BIG XD-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--BOOTSTRAP BIG XD-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <!-- FIRE BASE API ENDS-->
-  <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
-  <script defer src='js/script.js'></script>
-  <link href="styling.css" rel="stylesheet">
+    <!-- FIRE BASE API ENDS-->
+    <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
+    <script defer src='js/script.js'></script>
+    <link href="styling.css" rel="stylesheet">
 
-      <!-- FONT FOR TITLE -->
-      <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+    <!-- FONT FOR TITLE -->
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-  <div class="d-flex vh-100" id="nicknameInputDiv">
+    <div class="d-flex vh-100" id="nicknameInputDiv">
 
- 
-    <div class="container-fluid">
-      <div class="text-center">
-        <div class="container-fluid mt-5">
-          <p id="title">Maneuvering Man</p>
-          <p class="" id="titleDescription">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word to help him maneuver!</p>
-        </div>
-      </div>
-      
-      <div class="text-center mt-5" id="titlePageImage">
-        <img src="src/images/titlePageHangMan.svg" class="img-fluid" style="width: 200px;" alt="Hangman Title Page Image">
-      </div>
-      
-      
-      <div class="form-group text-center">
-        <div class="container mt-5" style="width: 350px;">
-        <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
-        </div>
-      <button class="mt-5" type="button" onclick="saveNickName()" id="startButton">Start!</button>
-      </div>
-      </div>
-      </div>
 
-      </div>
-
-  <div class="d-none" id="mainDiv">
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="container text-center mt-4">
-            <p id="nav_health">HEALTH: </h1>
-        </div>
+        <div class="container-fluid">
+            <div class="text-center">
+                <div class="container-fluid mt-5">
+                    <p id="title">Maneuvering Man</p>
+                    <p class="" id="titleDescription">Maneuver Man finds himself in an unmaneuverable situation. Quick, guess the right word to help him maneuver!</p>
                 </div>
-        <div class="col">
-          <div class="container text-center mt-4">
-            <p id="nav_title">Maneuver-Man!</h1>
+            </div>
+
+            <div class="text-center mt-5" id="titlePageImage">
+                <img src="src/images/titlePageHangMan.svg" class="img-fluid" style="width: 200px;" alt="Hangman Title Page Image">
+            </div>
+
+
+            <div class="form-group text-center">
+                <div class="container mt-5">
+                    <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
+                </div>
+                <button class="mt-5" type="button" onclick="saveNickName()" id="startButton">Start!</button>
+            </div>
         </div>
-              </div>
-        <div class="col">
-          <div class="container text-center mt-4">
-            <p id="nav_score">SCORE: </h1>
+    </div>
+
+    </div>
+
+    <div class="d-none" id="mainDiv">
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="container text-center mt-4">
+                        <p id="nav_health">HEALTH: </h1>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container text-center mt-4">
+                        <p id="nav_title">Maneuver-Man!</h1>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="container text-center mt-4">
+                        <p id="nav_score">SCORE: </h1>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+        <div class="container-fluid img-fluid" id="stickManView">
+            <img src="src/images/hangEmpty.svg" style="width: 20%;" class="img-fluid" alt="Responsive image">
         </div>
-      </div>
+
+        <div class="container-fluid" id="playingCards">
+            <div id="guessBox">
+            </div>
+            <div id="definition">
+            </div>
+            <div id="guessBox">
+            </div>
+            <div id="letters"></div>
+        </div>
     </div>
 
 
-    <div class="container-fluid img-fluid" id="stickManView">
-      <img src="src/images/hangEmpty.svg" style="width: 20%;" class="img-fluid" alt="Responsive image">
+    <div class="d-none vh-100" id="leaderboard">
+        <div class="d-flex w-100 justify-content-center align-self-center">
+            <div class="card text-center" id="outlineCard">
+                <div class="card-header" id="headerGradient">
+                    <p id="leaderboardTitle">Leaderboard</p>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Rank #</th>
+                                <th scope="col">Nickname</th>
+                                <th scope="col">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardBody">
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-dark" id="buttonGradient" onclick="reset()">Play Again</button>
+                </div>
+                <div class="card-footer text-muted">
+                    <p id="userScoreLeaderboard">Your Score:</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="container-fluid" id="playingCards">
-          <div id="guessBox">
-          </div>
-        <div id="definition">
-        </div>
-        <div id="guessBox">
-        </div>
-        <div id="letters"></div>
-    </div>
-  </div>
-
-
-  <div class="d-none vh-100" id="leaderboard">
-    <div class="d-flex w-100 justify-content-center align-self-center">
-      <div class="card text-center" id="outlineCard">
-        <div class="card-header" id="headerGradient">
-          <p id="leaderboardTitle">Leaderboard</p>
-        </div>
-        <div class="card-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Rank #</th>
-                <th scope="col">Nickname</th>
-                <th scope="col">Score</th>
-              </tr>
-            </thead>
-            <tbody id="leaderboardBody">
-            </tbody>
-          </table>
-          <button type="button" class="btn btn-dark" id="buttonGradient" onclick="reset()">Play Again</button>
-        </div>
-        <div class="card-footer text-muted">
-         <p  id="userScoreLeaderboard">Your Score:</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 </body>

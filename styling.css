@@ -1,6 +1,7 @@
-body{
+body {
     background-color: black;
 }
+
 #guessWord {
     text-align: center;
     font-family: Sedgwick Ave Display;
@@ -19,43 +20,40 @@ body{
     margin-bottom: 5%;
 }
 
-#playingCards{
+#playingCards {
     background-color: white;
     padding-bottom: 5%;
 }
 
-
 #letters {
-
     width: 100%;
     text-align: center
-
 }
 
-#nav_title{
+#nav_title {
     font-family: Sedgwick Ave Display;
     font-size: 30px;
     color: #DFE6E9;
 }
 
-#nav_health{
+#nav_health {
     font-family: Sedgwick Ave Display;
     font-size: 30px;
     color: #DFE6E9;
 }
 
-#nav_score{
+#nav_score {
     font-family: Sedgwick Ave Display;
     font-size: 30px;
     color: #DFE6E9;
 }
 
-#userScoreLeaderboard{
+#userScoreLeaderboard {
     font-family: Sedgwick Ave Display;
     color: #000000;
 }
 
-.guessButtonNormal{
+.guessButtonNormal {
     background-color: white;
     border-radius: 50%;
     border-color: rgba(0, 0, 0, 0.1);
@@ -68,16 +66,15 @@ body{
     font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition-duration: 0.3s;
-    cursor: pointer
-    ;
+    cursor: pointer;
 }
 
-.guessButtonNormal:hover{
+.guessButtonNormal:hover {
     background-color: black;
     color: white;
 }
 
-.guessButtonWrong{
+.guessButtonWrong {
     background-color: rgba(255, 0, 0, 0.9);
     border-radius: 50%;
     border-color: rgba(0, 0, 0, 0.037);
@@ -90,11 +87,10 @@ body{
     font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition-duration: 0.3s;
-    cursor: pointer
-    ;
+    cursor: pointer;
 }
 
-.guessButtonRight{
+.guessButtonRight {
     background-color: rgba(0, 128, 0, 0.9);
     border-radius: 50%;
     border-color: rgba(0, 0, 0, 0.037);
@@ -107,61 +103,55 @@ body{
     font-size: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition-duration: 0.3s;
-    cursor: pointer
-    ;
+    cursor: pointer;
 }
 
-
 #title {
-  
     font-family: Sedgwick Ave Display;
     font-style: normal;
     font-weight: normal;
     font-size: 45px;
     line-height: 30px;
     text-align: center;
-    
     color: #DFE6E9;
 }
 
 #titleDescription {
-
     font-family: Sedgwick Ave Display;
     font-style: normal;
     font-weight: normal;
     text-align: center;
     color: #DFE6E9;
-    
 }
 
-
-#startButton, #nicknameInput {
+#startButton,
+#nicknameInput {
     font-family: Sedgwick Ave Display;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  /* identical to box height */
-  color: #DFE6E9;
-  background-color: transparent;
-  padding: 11px 23px;
-  text-decoration: none;
-  display: inline-block;
-  border: 2px solid white; /* Green */
-
-  }
-
-
-  #leaderboardTitle{
-    font-family: Sedgwick Ave Display;
-    color: black;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    /* identical to box height */
+    color: #DFE6E9;
+    background-color: transparent;
+    padding: 11px 23px;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid white;
+    max-width: 50%;
+    /* Green */
 }
 
-td, tr, th{
+#leaderboardTitle {
     font-family: Sedgwick Ave Display;
     color: black;
 }
 
-
+td,
+tr,
+th {
+    font-family: Sedgwick Ave Display;
+    color: black;
+}
 
 
 /* 
