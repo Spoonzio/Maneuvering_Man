@@ -50,7 +50,6 @@ initializeFirebase();
 //
 // Initiator: Populate game word as array with random word
 //
-
 function init() {
     userGuess = [];
     gameWord = [];
@@ -61,9 +60,10 @@ function init() {
     getLeaderboard();
     updateHealth();
     updateScoreDisplay();
-    
+
     censorWord();
     showDef();
+    setStickman();
 }
 
 //
@@ -116,7 +116,7 @@ function updateUserWord(letter) {
         console.log("Health: " + health);
 
         if (health == 0) {
-            alert("You lose")
+            alert("You lose");
             endGame();
         }
     }
@@ -131,6 +131,24 @@ function updateUserWord(letter) {
     updateHealth();
     updateScoreDisplay();
 
+}
+
+function setStickman(){
+    let man = document.getElementById("maneuveringMan");
+    man.setAttribute("src", "src/images/runningMan.gif");
+    console.log(man);
+    man.setAttribute("style", "width:20%; left:0");
+    man.setAttribute("id", "stickMan");
+
+    let div = document.getElementById("stickManView");
+    div.appendChild(man);
+}
+
+function moveStickman(){
+    let man = document.getElementById("maneuveringMan");
+    let movement = window.innerWidth / gameWord.length;
+    movement = movement + movement;
+    man.setAttribute("style", "left:" + movement);
 }
 
 //
