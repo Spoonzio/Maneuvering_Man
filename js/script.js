@@ -1,7 +1,18 @@
 // Masterlist fo words
 let wordDict = {
     "jason": "This is a really long test that shows how much of text this box can hold. We need to be on the safe side.",
-    "hello": "greeting"
+    "hello": "greeting",
+    "marburg": "Identified in 1967, in Germany from exposure to infected monkeys. Symptoms: high fevers, bleeding, shock, and organ failure",
+    "ebola": "First identified in the Republic of Sudan and the Democratic Republic of Congo in 1976. Mainly spread through contact with bodily fluids or infected tissue. Symptoms: fever, fatigue, abdominal pain, Unexplained hemorrhaging, bleeding or bruising",
+    "rabies": "Although a vaccine for this virus was introduced in the 1920s, this virus remains a serious problem in India and parts of Africa. Symptoms: irritability or aggressiveness, confusion or hallucinations, muscle spasms, seizures, extreme sensitivity",
+    "hiv": "Often names the most deadly virus of the modern world this virus was first recognized in the early 1980s and is transmitted through bodily fluids. This virus interfere's with the body's ability to fight infection and disease Symptoms: sweats, recurring fever, diarrhea, pneumonia, significant weight loss",
+    "smallpox": "in 1980 the world was declared free of this virus, but during it's existance it killed about 1 in 3 of those infected, leaving survivors with deep, permanent scars and often blindness. Symptoms: high fever, skin rash and scabs, headaches, vomiting, diarrhea, sores",
+    "hantavirus": "A repitory disease that can be fatal, this disease originated in South Korea from a small rodent. Symptoms: dizziness, fever and chlls, stomach pain, nausea, and coughing",
+    "influenza": "A viral infection that attacks the respitory system. This virus is the reason for seasonal flu epidemics each year. Symptoms: fever, cough, sore throat, muscle or body aches, headaches, fatigue.",
+    "sars": "A viral respitory illness caused by a corona virus, recognized as a global threat in 2003, after first appearing in Southern China in 2002. Symptoms: high fever, body aches, headaches, and mild respiratory symptoms",
+    "corona": "Discovered in 2019, this is the most recently discovered strain. Symptoms: cough, fever, tiredness, difficulty breathing",
+    "mers": "This virus is spread from an infected person's respiratory secretions, althought the origins are not fully understood it believed to have been originated from the middle east Symptoms: fever, cough, shortness of breath, diarrhea, nausea and vomiting",
+
 }
 
 // Picked word and its definition
@@ -63,8 +74,26 @@ function init() {
 
     censorWord();
     showDef();
+    setStickman()
+    moveStickman();
+}
+
+function initMove() {
+    userGuess = [];
+    gameWord = [];
+    wordDef = "";
+
+    getRandomWord()
+    createNButtons();
+    getLeaderboard();
+    updateHealth();
+    updateScoreDisplay();
+
+    censorWord();
+    showDef();
     setStickman();
 }
+
 
 //
 // From the Master list, select a word, format, and delete from list. End game when list is empty
@@ -137,8 +166,7 @@ function setStickman(){
     let man = document.getElementById("maneuveringMan");
     man.setAttribute("src", "src/images/runningMan.gif");
     console.log(man);
-    man.setAttribute("style", "width:20%; left:0");
-    man.setAttribute("id", "stickMan");
+    man.setAttribute("style", "height:10%");
 
     let div = document.getElementById("stickManView");
     div.appendChild(man);
@@ -146,8 +174,10 @@ function setStickman(){
 
 function moveStickman(){
     let man = document.getElementById("maneuveringMan");
-    let movement = window.innerWidth / gameWord.length;
+    let movement = window.innerWidth / Object.keys(wordDict).length;
+    console.log("it moved! " + movement);
     movement = movement + movement;
+    console.log("it moved check! " + movement);
     man.setAttribute("style", "left:" + movement);
 }
 
