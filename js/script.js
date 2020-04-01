@@ -1,7 +1,5 @@
 // Masterlist fo words
 let wordDict = {
-    "jason": "This is a really long test that shows how much of text this box can hold. We need to be on the safe side.",
-    "hello": "greeting",
     "marburg": "Identified in 1967, in Germany from exposure to infected monkeys. Symptoms: high fevers, bleeding, shock, and organ failure",
     "ebola": "First identified in the Republic of Sudan and the Democratic Republic of Congo in 1976. Mainly spread through contact with bodily fluids or infected tissue. Symptoms: fever, fatigue, abdominal pain, Unexplained hemorrhaging, bleeding or bruising",
     "rabies": "Although a vaccine for this virus was introduced in the 1920s, this virus remains a serious problem in India and parts of Africa. Symptoms: irritability or aggressiveness, confusion or hallucinations, muscle spasms, seizures, extreme sensitivity",
@@ -12,7 +10,9 @@ let wordDict = {
     "sars": "A viral respitory illness caused by a corona virus, recognized as a global threat in 2003, after first appearing in Southern China in 2002. Symptoms: high fever, body aches, headaches, and mild respiratory symptoms",
     "corona": "Discovered in 2019, this is the most recently discovered strain. Symptoms: cough, fever, tiredness, difficulty breathing",
     "mers": "This virus is spread from an infected person's respiratory secretions, althought the origins are not fully understood it believed to have been originated from the middle east Symptoms: fever, cough, shortness of breath, diarrhea, nausea and vomiting",
-
+    "Tattoo": "a form of body modification where a design is made by inserting ink",
+    "Electricity": " is the set of physical phenomena associated with the presence and motion of electric charge.",
+    "Committee": "a group of people appointed for a specific function, typically consisting of members of a larger group."
 }
 
 // Picked word and its definition
