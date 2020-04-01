@@ -72,11 +72,9 @@ function init() {
     getLeaderboard();
     updateHealth();
     updateScoreDisplay();
-    
+
     censorWord();
     showDef();
-<<<<<<< HEAD
-=======
     setStickman()
     moveStickman();
 }
@@ -95,7 +93,6 @@ function initMove() {
     censorWord();
     showDef();
     setStickman();
->>>>>>> 76ee40e90cbb03531e426e1955e83635b4aa2e79
 }
 
 
@@ -166,9 +163,7 @@ function updateUserWord(letter) {
 
 }
 
-<<<<<<< HEAD
-=======
-function setStickman(){
+function setStickman() {
     let man = document.getElementById("maneuveringMan");
     man.setAttribute("src", "src/images/runningMan.gif");
     console.log(man);
@@ -178,7 +173,7 @@ function setStickman(){
     div.appendChild(man);
 }
 
-function moveStickman(){
+function moveStickman() {
     let man = document.getElementById("maneuveringMan");
     let movement = window.innerWidth / Object.keys(wordDict).length;
     console.log("it moved! " + movement);
@@ -187,7 +182,6 @@ function moveStickman(){
     man.setAttribute("style", "left:" + movement);
 }
 
->>>>>>> 76ee40e90cbb03531e426e1955e83635b4aa2e79
 //
 // Remove buttons, show leaderboard
 //
@@ -199,13 +193,14 @@ function endGame() {
     saveScore();
     hideMainDiv();
 
+    getLeaderboard();
     showLeaderBoard();
     // display leaderboard and ending message
 
 }
 
 
-function reset(){
+function reset() {
 
     window.location.replace("index.html");
 
@@ -217,16 +212,16 @@ function reset(){
 //
 function updateScoreDisplay() {
     document.getElementById("nav_score").innerText = "Score: " + score;
-    
+
 }
 
 //
 // Present array as word
 //
 function showWord() {
-    if(gameWord.length > 0){
-        document.getElementById("guessBox").innerHTML = "<p id = 'guessWord'>" +userGuess.join(" ") + "</p>";
-    }else{
+    if (gameWord.length > 0) {
+        document.getElementById("guessBox").innerHTML = "<p id = 'guessWord'>" + userGuess.join(" ") + "</p>";
+    } else {
         document.getElementById("guessBox").innerHTML = "<p id = 'guessWord'>SOOOOWWYYYYY NO MORE WORDS!</p>";
 
     }
@@ -257,31 +252,31 @@ function Button(i) {
     this.btn = document.createElement('button');
     this.btn.textContent = alphabet[i];
     this.btn.classList.add("guessButtonNormal");
-    
+
     this.btn.id = "button_" + alphabet[i];
-    this.btn.onclick = function () {
+    this.btn.onclick = function() {
         updateUserWord(alphabet[i]);
     };
 
     // Show self
-    this.display = function () {
+    this.display = function() {
         document.getElementById("letters").appendChild(this.btn);
     }
 
     // Show button is incorrect
-    this.wrong = function (letterGuessed) {
+    this.wrong = function(letterGuessed) {
         let butt = buttonList[alphabet.indexOf(letterGuessed)];
         console.log(butt);
         butt.btn.disabled = true;
-        butt.btn.classList.replace("guessButtonNormal","guessButtonWrong");
+        butt.btn.classList.replace("guessButtonNormal", "guessButtonWrong");
     }
 
     // Show button is correct
-    this.correct = function (letterGuessed) {
+    this.correct = function(letterGuessed) {
         let butt = buttonList[alphabet.indexOf(letterGuessed)];
         console.log(butt);
         butt.btn.disabled = true;
-        butt.btn.classList.replace("guessButtonNormal","guessButtonRight");
+        butt.btn.classList.replace("guessButtonNormal", "guessButtonRight");
     }
 }
 
@@ -325,10 +320,10 @@ function saveScore() {
                 name: nickname,
                 score: score
             })
-            .then(function (docRef) {
+            .then(function(docRef) {
                 console.log("Document written with ID: ", docRef.id);
             })
-            .catch(function (error) {
+            .catch(function(error) {
                 console.error("Error adding document: ", error);
             });
     }
@@ -337,15 +332,15 @@ function saveScore() {
 
 function getLeaderboard() {
 
-    document.getElementById("userScoreLeaderboard").innerHTML = "Health: " + score;
+    document.getElementById("userScoreLeaderboard").innerText = "Your Score is: " + score;
 
     let leaderboardTBody = document.getElementById("leaderboardBody");
     leaderboardTBody.innerHTML = "";
 
     let i = 1;
 
-    db.collection("scores").orderBy('score', 'desc').limit(3).get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
+    db.collection("scores").orderBy('score', 'desc').limit(3).get().then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
             if (doc.exists) {
                 console.log("Document data:", doc.data());
@@ -378,30 +373,30 @@ function getLeaderboard() {
 }
 
 
-function saveNickName(){
+function saveNickName() {
 
-  nickname = document.getElementById("nicknameInput").value;
-  console.log("Nickname is " + nickname);
-  showMainDiv();
-  
+    nickname = document.getElementById("nicknameInput").value;
+    console.log("Nickname is " + nickname);
+    showMainDiv();
+
 
 }
 
 
-function hideNickNameInput(){
+function hideNickNameInput() {
 
     document.getElementById("nicknameInputDiv").classList.replace("d-flex", "d-none");
 
 }
 
-function showNickNameInput(){
-    
+function showNickNameInput() {
+
     document.getElementById("nicknameInputDiv").classList.replace("d-none", "d-flex");
 
 }
 
 
-function showMainDiv(){
+function showMainDiv() {
 
     document.getElementById("mainDiv").classList.replace("d-none", "d-block");
     hideNickNameInput();
@@ -409,23 +404,23 @@ function showMainDiv(){
 
 }
 
-function hideMainDiv(){
+function hideMainDiv() {
 
     document.getElementById("mainDiv").classList.replace("d-block", "d-none");
 
 }
 
 
-function hideLeaderBoard(){
+function hideLeaderBoard() {
 
     document.getElementById("leaderboard").classList.replace("d-flex", "d-none");
 
 }
 
-function showLeaderBoard(){
+function showLeaderBoard() {
 
     document.getElementById("leaderboard").classList.replace("d-none", "d-flex");
 
-    
+
 }
 init()
