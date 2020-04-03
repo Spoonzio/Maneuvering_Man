@@ -5,7 +5,7 @@ body {
 #guessWord {
     text-align: center;
     font-family: Sedgwick Ave Display;
-    font-size: 4vh;
+    font-size: 3.8vh;
     color: black;
     margin-bottom: 5%;
     padding-top: 20px;
@@ -15,7 +15,7 @@ body {
     text-align: center;
     font-family: Sedgwick Ave Display;
     color: black;
-    font-size: 3vh;
+    font-size: 2.8vh;
     margin-top: 5%;
     margin-bottom: 5%;
 }
@@ -50,7 +50,7 @@ body {
 
 #bottomContainer {
     max-width: 100%;
-    max-height: 80vh;
+    max-height: 90vh;
 }
 
 #userScoreLeaderboard {
@@ -60,6 +60,17 @@ body {
 
 #nicknameInputDiv {
     max-width: 100%;
+}
+
+#restartButton {
+    font-family: Sedgwick Ave Display;
+    margin-top: 1%;
+    margin-bottom: 2px;
+    font-size: 4vh;
+    text-align: right;
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
 }
 
 .guessButtonNormal {
@@ -72,7 +83,7 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 3vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition-duration: 0.3s;
     cursor: pointer;
@@ -93,7 +104,7 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 3vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition-duration: 0.3s;
     cursor: pointer;
@@ -109,7 +120,7 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 3vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     transition-duration: 0.3s;
     cursor: pointer;
@@ -140,8 +151,6 @@ body {
     font-style: normal;
     font-weight: normal;
     text-align: center;
-    /* font-size: 20px; */
-    /* identical to box height */
     color: #DFE6E9;
     background-color: transparent;
     padding: 11px 23px;
@@ -149,7 +158,6 @@ body {
     display: inline-block;
     border: 2px solid white;
     max-width: 50%;
-    /* Green */
 }
 
 #leaderboardTitle {

@@ -11,9 +11,9 @@ let wordDict = {
     "corona": "Discovered in 2019, this is the most recently discovered strain. Symptoms: cough, fever, tiredness, difficulty breathing",
     "mers": "This virus is spread from an infected person's respiratory secretions, althought the origins are not fully understood it believed to have been originated from the middle east Symptoms: fever, cough, shortness of breath, diarrhea, nausea and vomiting",
     //for testing
-    "Tattoo": "a form of body modification where a design is made by inserting ink",
-    "Electricity": " is the set of physical phenomena associated with the presence and motion of electric charge.",
-    "Committee": "a group of people appointed for a specific function, typically consisting of members of a larger group."
+    "tattoo": "a form of body modification where a design is made by inserting ink",
+    "electricity": "is the set of physical phenomena associated with the presence and motion of electric charge.",
+    "committee": "a group of people appointed for a specific function, typically consisting of members of a larger group."
 }
 
 // Picked word and its definition
@@ -78,6 +78,7 @@ function init() {
     censorWord();
     showDef();
     setStickman()
+    loadNickName();
 }
 
 //
@@ -359,9 +360,16 @@ function getLeaderboard() {
     });
 }
 
+function loadNickName() {
+    if (localStorage.getItem('nickName').length > 0) {
+        document.getElementById("nicknameInput").value
+    }
+
+
+}
 
 function saveNickName() {
-
+    localStorage.setItem('nickName', document.getElementById("nicknameInput").value)
     nickname = document.getElementById("nicknameInput").value;
     console.log("Nickname is " + nickname);
     showMainDiv();
