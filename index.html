@@ -94,7 +94,7 @@
                 </div>
                 <div id="letters"></div>
                 <div id="restartButton">
-                    <button type="button" id="restartButton" onclick="reset()">↺</button>
+                    <button type="button" id="restartButtonFr" onclick="reset()">↺</button>
                 </div>
             </div>
         </div>
@@ -112,15 +112,15 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Rank #</th>
-                                <th scope="col">Nickname</th>
-                                <th scope="col">Score</th>
+                                <th scope="col" id="tableTitles">Rank #</th>
+                                <th scope="col" id="tableTitles">Nickname</th>
+                                <th scope="col" id="tableTitles">Score</th>
                             </tr>
                         </thead>
                         <tbody id="leaderboardBody">
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-dark" id="buttonGradient" onclick="reset()">Play Again</button>
+                    <button type="button" class="btn btn-dark" id="playAgainButton" onclick="reset()">Play Again</button>
                 </div>
                 <div class="card-footer text-muted">
                     <p id="userScoreLeaderboard">Your Score:</p>

@@ -55,14 +55,15 @@ body {
 
 #userScoreLeaderboard {
     font-family: Sedgwick Ave Display;
-    color: #000000;
+    color: white;
 }
 
 #nicknameInputDiv {
     max-width: 100%;
 }
 
-#restartButton {
+#restartButton,
+#restartButtonFr {
     font-family: Sedgwick Ave Display;
     margin-top: 1%;
     margin-bottom: 2px;
@@ -71,7 +72,15 @@ body {
     color: black;
     background-color: transparent;
     text-decoration: none;
+    border-radius: 50%;
 }
+
+#restartButtonFr:hover {
+    color: white;
+    background-color: black;
+    border-color: grey;
+}
+
 
 .guessButtonNormal {
     background-color: white;
@@ -139,14 +148,16 @@ body {
 #titleDescription {
     font-family: Sedgwick Ave Display;
     font-style: normal;
-    font-size: 3vw;
+    font-size: 2.7vw;
     font-weight: normal;
     text-align: center;
+    padding-top: 15px;
     color: #DFE6E9;
 }
 
 #startButton,
-#nicknameInput {
+#nicknameInput,
+#playAgainButton {
     font-family: Sedgwick Ave Display;
     font-style: normal;
     font-weight: normal;
@@ -158,103 +169,34 @@ body {
     display: inline-block;
     border: 2px solid white;
     max-width: 50%;
+    border-radius: 12px;
+}
+
+#startButton:hover,
+#nicknameInput:hover,
+#playAgainButton:hover {
+    color: black;
+    background-color: white;
+    border-color: grey;
 }
 
 #leaderboardTitle {
     font-family: Sedgwick Ave Display;
-    color: black;
+    color: white;
+}
+
+#leaderboardBody {
+    background-color: transparent;
+}
+
+#outlineCard {
+    border: white 2px solid;
+    background-color: transparent;
 }
 
 td,
 tr,
 th {
     font-family: Sedgwick Ave Display;
-    color: black;
-}
-
-
-/* 
-h1 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 3.9em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 5px 0;
     color: white;
 }
-
-#description {
-    font-size: 1.5em;
-    color: white;
-    text-align: center;
-}
-
-.navbar-brand {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-
-p {
-    font-size: 1.5em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-}
-
-.header {
-    text-align: center;
-}
-
-
-#leaderboardScore {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-#leaderboardName {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.leaderboardTable {
-    width: 30%;
-    display: none;
-}
-
-#stickyStats {
-    background: rgb(253, 45, 70);
-    background: linear-gradient(0deg, rgba(253, 45, 70, 1) 0%, rgba(136, 22, 72, 1) 100%);
-
-}
-
-#noMoreWords {
-    display: none;
-}
-
-#healthLevel {
-    font-size: 1.5em;
-}
-
-#scoreLevel {
-    font-size: 1.5em;
-}
-
-#headerGradient {
-    background: rgb(136, 22, 72);
-    background: linear-gradient(0deg, rgba(136, 22, 72, 1) 0%, rgba(253, 45, 70, 1) 100%);
-    border-bottom: 2.5px solid rgb(54, 53, 53);
-    color: white;
-}
-
-#buttonGradient {
-    background: rgb(253, 45, 70);
-    background: linear-gradient(0deg, rgba(253, 45, 70, 1) 0%, rgba(136, 22, 72, 1) 100%);
-}
-
-#outlineCard {
-    border: 1.5px solid rgb(54, 53, 53);
-} */
