@@ -10,7 +10,7 @@ let wordDict = {
     "sars": "A viral respitory illness caused by a corona virus, recognized as a global threat in 2003, after first appearing in Southern China in 2002. Symptoms: high fever, body aches, headaches, and mild respiratory symptoms",
     "corona": "Discovered in 2019, this is the most recently discovered strain. Symptoms: cough, fever, tiredness, difficulty breathing",
     "mers": "This virus is spread from an infected person's respiratory secretions, althought the origins are not fully understood it believed to have been originated from the middle east Symptoms: fever, cough, shortness of breath, diarrhea, nausea and vomiting",
-     //for testing
+    //for testing
     "Tattoo": "a form of body modification where a design is made by inserting ink",
     "Electricity": " is the set of physical phenomena associated with the presence and motion of electric charge.",
     "Committee": "a group of people appointed for a specific function, typically consisting of members of a larger group."
@@ -25,7 +25,7 @@ let userGuess = [];
 
 // Limbs
 let health = 7;
-const MAX_HEALTH= 7;
+const MAX_HEALTH = 7;
 
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 const ALPHABET_COUNT = 26;
@@ -152,7 +152,7 @@ function setStickman() {
     let man = document.getElementById("maneuveringMan");
     man.setAttribute("src", "src/images/runningMan.gif");
     console.log(man);
-    man.setAttribute("style", "width: 20%; position: relative; left: 0px");
+    man.setAttribute("style", "max-width: 10%; position: relative; left: 0px");
 
     let div = document.getElementById("stickManView");
     div.appendChild(man);
@@ -165,7 +165,7 @@ function moveStickman(current_health) {
     console.log(MAX_HEALTH);
     console.log(part);
     let right = Math.floor((MAX_HEALTH - current_health) * part);
-    man.setAttribute("style", "width: 20%; position: relative; left: " + right + "px");
+    man.setAttribute("style", "max-width: 10%; position: relative; left: " + right + "px");
     console.log("it moved check! " + right);
 }
 
@@ -372,13 +372,13 @@ function saveNickName() {
 
 function hideNickNameInput() {
 
-    document.getElementById("nicknameInputDiv").classList.replace("d-flex", "d-none");
+    document.getElementById("nicknameInputDiv").classList.replace("d-fluid", "d-none");
 
 }
 
 function showNickNameInput() {
 
-    document.getElementById("nicknameInputDiv").classList.replace("d-none", "d-flex");
+    document.getElementById("nicknameInputDiv").classList.replace("d-none", "d-fluid");
 
 }
 
