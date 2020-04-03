@@ -59,6 +59,10 @@ function initializeFirebase() {
 }
 
 initializeFirebase();
+setStickman()
+loadNickName();
+
+
 
 //
 // Initiator: Populate game word as array with random word
@@ -77,8 +81,7 @@ function init() {
 
     censorWord();
     showDef();
-    setStickman()
-    loadNickName();
+
 }
 
 //
@@ -361,11 +364,9 @@ function getLeaderboard() {
 }
 
 function loadNickName() {
-    if (localStorage.getItem('nickName').length > 0) {
-        document.getElementById("nicknameInput").value
+    if (localStorage.getItem('nickName')) {
+        document.getElementById("nicknameInput").value = localStorage.getItem('nickName');
     }
-
-
 }
 
 function saveNickName() {
