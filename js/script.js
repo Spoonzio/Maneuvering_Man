@@ -3,14 +3,14 @@ let wordDict = {
     "quarantine" : "A restriction of movement that is typically placed on people with a contagious disease",
     "lockdown" : "A preemptive measure taken by a government to inhibit the spreading of a disease",
     "asymptomatic" : "People who do not showcase any symptoms of a disease",
-    "distancing" : "Definition: Keeping away from people to avoid getting and spreading the virus, this social intervention is commonly known as",
+    "distancing" : "Keeping away from people to avoid getting and spreading the virus, this social intervention is commonly known as",
     "pandemic" : "An epidemic, but bigger!",
     "washing" : "A form of cleansing bacteria and potentially other dangerous lifeforms from yourself",
     "corona": "This disease, discovered in December of 2019, causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing.",
     //for testing
-    "tattoo": "a form of body modification where a design is made by inserting ink",
+    "tattoo": "A form of body modification where a design is made by inserting ink",
     "electricity": "is the set of physical phenomena associated with the presence and motion of electric charge.",
-    "committee": "a group of people appointed for a specific function, typically consisting of members of a larger group."
+    "committee": "A group of people appointed for a specific function, typically consisting of members of a larger group."
 }
 
 // Picked word and its definition
