@@ -1,19 +1,16 @@
-// Masterlist fo words
+// Masterlist for words
 let wordDict = {
-    "marburg": "Identified in 1967, in Germany from exposure to infected monkeys. Symptoms: high fevers, bleeding, shock, and organ failure",
-    "ebola": "First identified in the Republic of Sudan and the Democratic Republic of Congo in 1976. Mainly spread through contact with bodily fluids or infected tissue. Symptoms: fever, fatigue, abdominal pain, Unexplained hemorrhaging, bleeding or bruising",
-    "rabies": "Although a vaccine for this virus was introduced in the 1920s, this virus remains a serious problem in India and parts of Africa. Symptoms: irritability or aggressiveness, confusion or hallucinations, muscle spasms, seizures, extreme sensitivity",
-    "hiv": "Often names the most deadly virus of the modern world this virus was first recognized in the early 1980s and is transmitted through bodily fluids. This virus interfere's with the body's ability to fight infection and disease Symptoms: sweats, recurring fever, diarrhea, pneumonia, significant weight loss",
-    "smallpox": "in 1980 the world was declared free of this virus, but during it's existance it killed about 1 in 3 of those infected, leaving survivors with deep, permanent scars and often blindness. Symptoms: high fever, skin rash and scabs, headaches, vomiting, diarrhea, sores",
-    "hantavirus": "A repitory disease that can be fatal, this disease originated in South Korea from a small rodent. Symptoms: dizziness, fever and chlls, stomach pain, nausea, and coughing",
-    "influenza": "A viral infection that attacks the respitory system. This virus is the reason for seasonal flu epidemics each year. Symptoms: fever, cough, sore throat, muscle or body aches, headaches, fatigue.",
-    "sars": "A viral respitory illness caused by a corona virus, recognized as a global threat in 2003, after first appearing in Southern China in 2002. Symptoms: high fever, body aches, headaches, and mild respiratory symptoms",
-    "corona": "Discovered in 2019, this is the most recently discovered strain. Symptoms: cough, fever, tiredness, difficulty breathing",
-    "mers": "This virus is spread from an infected person's respiratory secretions, althought the origins are not fully understood it believed to have been originated from the middle east Symptoms: fever, cough, shortness of breath, diarrhea, nausea and vomiting",
-     //for testing
-    "Tattoo": "a form of body modification where a design is made by inserting ink",
-    "Electricity": " is the set of physical phenomena associated with the presence and motion of electric charge.",
-    "Committee": "a group of people appointed for a specific function, typically consisting of members of a larger group."
+    "quarantine" : "A restriction of movement that is typically placed on people with a contagious disease",
+    "lockdown" : "A preemptive measure taken by a government to inhibit the spreading of a disease",
+    "asymptomatic" : "People who do not showcase any symptoms of a disease",
+    "distancing" : "Definition: Keeping away from people to avoid getting and spreading the virus, this social intervention is commonly known as",
+    "pandemic" : "An epidemic, but bigger!",
+    "washing" : "A form of cleansing bacteria and potentially other dangerous lifeforms from yourself",
+    "corona": "This disease, discovered in December of 2019, causes respiratory illness (like the flu) with symptoms such as a cough, fever, and in more severe cases, difficulty breathing.",
+    //for testing
+    "tattoo": "a form of body modification where a design is made by inserting ink",
+    "electricity": "is the set of physical phenomena associated with the presence and motion of electric charge.",
+    "committee": "a group of people appointed for a specific function, typically consisting of members of a larger group."
 }
 
 // Picked word and its definition
@@ -25,7 +22,7 @@ let userGuess = [];
 
 // Limbs
 let health = 7;
-const MAX_HEALTH= 7;
+const MAX_HEALTH = 7;
 
 const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 const ALPHABET_COUNT = 26;
@@ -59,6 +56,10 @@ function initializeFirebase() {
 }
 
 initializeFirebase();
+setStickman()
+loadNickName();
+
+
 
 //
 // Initiator: Populate game word as array with random word
@@ -77,7 +78,7 @@ function init() {
 
     censorWord();
     showDef();
-    setStickman()
+
 }
 
 //
@@ -148,24 +149,25 @@ function updateUserWord(letter) {
 
 }
 
+//set stickman in div
 function setStickman() {
     let man = document.getElementById("maneuveringMan");
     man.setAttribute("src", "src/images/runningMan.gif");
     console.log(man);
-    man.setAttribute("style", "width: 20%; position: relative; left: 0px");
+    man.setAttribute("style", "max-width: 10%; position: relative; left: 0px");
 
     let div = document.getElementById("stickManView");
     div.appendChild(man);
 }
 
-
+//move stickman
 function moveStickman(current_health) {
     let man = document.getElementById("maneuveringMan");
     let part = window.innerWidth / MAX_HEALTH;
     console.log(MAX_HEALTH);
     console.log(part);
     let right = Math.floor((MAX_HEALTH - current_health) * part);
-    man.setAttribute("style", "width: 20%; position: relative; left: " + right + "px");
+    man.setAttribute("style", "max-width: 10%; position: relative; left: " + right + "px");
     console.log("it moved check! " + right);
 }
 
@@ -359,9 +361,14 @@ function getLeaderboard() {
     });
 }
 
+function loadNickName() {
+    if (localStorage.getItem('nickName')) {
+        document.getElementById("nicknameInput").value = localStorage.getItem('nickName');
+    }
+}
 
 function saveNickName() {
-
+    localStorage.setItem('nickName', document.getElementById("nicknameInput").value)
     nickname = document.getElementById("nicknameInput").value;
     console.log("Nickname is " + nickname);
     showMainDiv();
@@ -372,13 +379,13 @@ function saveNickName() {
 
 function hideNickNameInput() {
 
-    document.getElementById("nicknameInputDiv").classList.replace("d-flex", "d-none");
+    document.getElementById("nicknameInputDiv").classList.replace("d-fluid", "d-none");
 
 }
 
 function showNickNameInput() {
 
-    document.getElementById("nicknameInputDiv").classList.replace("d-none", "d-flex");
+    document.getElementById("nicknameInputDiv").classList.replace("d-none", "d-fluid");
 
 }
 

@@ -26,7 +26,7 @@
     <!-- FIRE BASE API ENDS-->
     <!-- USER DEFER TO LOAD JS ONCE BODY IS LOADED-->
     <script defer src='js/script.js'></script>
-    <link href="styling.css" rel="stylesheet">
+    <link href="css/styling.css" rel="stylesheet">
 
     <!-- FONT FOR TITLE -->
     <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
@@ -35,9 +35,7 @@
 
 <body>
 
-    <div class="d-flex vh-100" id="nicknameInputDiv">
-
-
+    <div class="d-fluid" id="nicknameInputDiv">
         <div class="container-fluid">
             <div class="text-center">
                 <div class="container-fluid mt-5">
@@ -53,17 +51,14 @@
 
             <div class="form-group text-center">
                 <div class="container mt-5">
-                    <input type="text" class="form-control" id="nicknameInput" placeholder="Enter your nickname">
+                    <input type="text" class="form-control" id="nicknameInput" placeholder="Nickname">
                 </div>
                 <button class="mt-5" type="button" onclick="saveNickName()" id="startButton">Start!</button>
             </div>
         </div>
     </div>
-    </div>
 
     <div class="d-none" id="mainDiv">
-
-    
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -71,7 +66,7 @@
                         <p id="nav_health">HEALTH: </h1>
                     </div>
                 </div>
-                <div class="col">
+                <div class="">
                     <div class="container text-center mt-4">
                         <p id="nav_title">Maneuver-Man!</h1>
                     </div>
@@ -84,21 +79,27 @@
             </div>
         </div>
 
-        <div class="container-fluid img-fluid" id="stickManView">
-          <img id="maneuveringMan">
-        </div>
+        <div class="fixed-bottom" id="bottomContainer">
+            <div class="container-fluid img-fluid" style="position:relative; top:0px; left:0px;" id="stickManView">
+                <img id="maneuveringMan">
+            </div>
 
 
-        <div class="container-fluid fixed-bottom" id="playingCards">
-            <div id="guessBox">
+            <div class="container-fluid" id="playingCards">
+                <div id="guessBox">
+                </div>
+                <div id="definition">
+                </div>
+                <div id="guessBox">
+                </div>
+                <div id="letters"></div>
+                <div id="restartButton">
+                    <button type="button" id="restartButtonFr" onclick="reset()">↺</button>
+                </div>
             </div>
-            <div id="definition">
-            </div>
-            <div id="guessBox">
-            </div>
-            <div id="letters"></div>
         </div>
     </div>
+
 
 
     <div class="d-none vh-100" id="leaderboard">
@@ -111,15 +112,15 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Rank #</th>
-                                <th scope="col">Nickname</th>
-                                <th scope="col">Score</th>
+                                <th scope="col" id="tableTitles">Rank #</th>
+                                <th scope="col" id="tableTitles">Nickname</th>
+                                <th scope="col" id="tableTitles">Score</th>
                             </tr>
                         </thead>
                         <tbody id="leaderboardBody">
                         </tbody>
                     </table>
-                    <button type="button" class="btn btn-dark" id="buttonGradient" onclick="reset()">Play Again</button>
+                    <button type="button" class="btn btn-dark" id="playAgainButton" onclick="reset()">Play Again</button>
                 </div>
                 <div class="card-footer text-muted">
                     <p id="userScoreLeaderboard">Your Score:</p>
