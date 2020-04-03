@@ -153,6 +153,12 @@ th {
     color: black;
 }
 
+#stickManView {
+    position:relative; 
+    top:0px;
+    left: 0px;
+}
+
 
 /* 
 h1 {
